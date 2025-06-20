@@ -30,7 +30,7 @@ let db;
         await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
         await connection.end();
 
-        // Connect to 
+        // Connect to the 'DogWalkService' database 
         db = await mysql.createConnection({
             host: 'localhost',
             user: 'root',
