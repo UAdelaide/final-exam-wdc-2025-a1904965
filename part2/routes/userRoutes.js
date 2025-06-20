@@ -27,7 +27,9 @@ router.get('/my-dogs', async(req, res) => {
       FROM Dogs
       WHERE owner_id = ?
       ORDER BY name
-      `) 
+      `, [req.session.user.user_id]);
+
+      res.json(rows); 
   }
 })
 
