@@ -46,7 +46,7 @@
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                username: this.loginForm.username, 
+                username: this.loginForm.username,
                 password: this.loginForm.password
               })
             });
@@ -57,7 +57,7 @@
             if (data.user.role === 'owner') {
               window.location.href = 'owner-dashboard.html';
             } else {
-              window.location.href - 'walker-dashboard.html';
+              window.location.href ='walker-dashboard.html';
             }
             } catch (err) {
               alert('Login failed: ' + err.message);
