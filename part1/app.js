@@ -103,7 +103,8 @@ await db.execute(`
     `);
 
 // Insert data if table is empty
-const[users] = await db.execute('')
+const[users] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+if (users[0])
 
 
 
