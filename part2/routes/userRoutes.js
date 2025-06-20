@@ -49,14 +49,12 @@ router.post('/login', async (req, res) => {
       WHERE username = ? AND password_hash = ?
     `, [username, password]); // changed from email to username
 
-    // check if user exists with provided credentials 
+    // check if user exists with provided credentials
     if (rows.length === 0) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-    // Store user information in session
-    req.session.user = rows[0];
-
+  // Store logged-in user’s information in server-side session for future access     req.session.user = rows[0];
     res.json({ message: 'Login successful', user: rows[0] });
   } catch (error) {
     res.status(500).json({ error: 'Login failed' });
