@@ -28,10 +28,10 @@
           <!-- Question 15: DROPDOWN WITH DOG NAMES -->
           <div class="mb-3">
             <label class="form-label">Select Your Dog</label>
-            <select v-model="form.dog_id" class = "form-control" required>
-              <option value = "" disabled>-- Choose a dog --</option>
-              <option v-for = "dog in userDogs" :key="dog.dog_id" value="dog.dog_id">
-                {{ dog.name }} {{ dog.size }}
+            <select v-model="form.dog_id" class="form-control" required>
+              <option value="" disabled>-- Choose a dog --</option>
+              <option v-for="dog in userDogs" :key="dog.dog_id" value="dog.dog_id">
+                {{ dog.name }}
               </option>
             </select>
           </div>
