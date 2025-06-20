@@ -6,9 +6,9 @@ const app = express();
 
 const session = require('express-session');
 
-// Session Middleware
+// Session Management Middleware
 app.use(session({
-    
+
 
 }));
 
