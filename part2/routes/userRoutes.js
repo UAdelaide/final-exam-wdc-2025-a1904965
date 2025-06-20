@@ -42,8 +42,13 @@ router.get('/me', async(req, res) => {
   try {
     // check if user is logged in via session
     if(!req.session.user) {
-      return res.status(401).json({ error: 'Not authenticated' }); 
+      return res.status(401).json({ error: 'Not authenticated' });
     }
+
+    // return current user data from session
+    res.json(req.session.user);
+  } catch (error) {
+    con
   }
 })
 // POST a new user (simple signup)
