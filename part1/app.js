@@ -151,6 +151,8 @@ Define the routes at the paths
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+// API Routes Defined
+
 // Routes at /api/dogs
 app.get('/api/dogs', async (req, res) => {
     try {
