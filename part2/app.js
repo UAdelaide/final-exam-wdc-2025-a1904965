@@ -10,8 +10,8 @@ const session = require('express-session');
 app.use(session({
     secret: 'dog-walk-secret',
     resave: false,
-    saveUninitialized: false;
-    cookie: { secure: false } 
+    saveUninitialized: false,
+    cookie: { secure: false }
 }));
 
 // Middleware
