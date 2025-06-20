@@ -120,7 +120,7 @@ let db;
 
             await db.execute(`
         INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
-((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Max' AND u.username = 'alice123'),
+    ((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Max' AND u.username = 'alice123'),
 '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
 
 ((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Bella' AND u.username = 'carol123'),
