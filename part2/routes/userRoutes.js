@@ -15,7 +15,9 @@ router.get('/', async (req, res) => {
 // GET /api/users/my-dogs
 // returns dogs owned by the currently logged-in user
 router.get('/my-dogs', async(req, res) => {
-  
+  try {
+    
+  }
 })
 
 // POST a new user (simple signup)
