@@ -17,6 +17,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 let db;
 
+// Insert records into the database on startup to allow for testing
 (async () => {
     try {
         const connection = await mysql.createConnection({
