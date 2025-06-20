@@ -23,10 +23,12 @@ let db;
 (async () => {
     try {
         const connection = await mysql.createConnection({
-            host: ''
+            host: 'localhost',
+            user: 'root',
+            password: ''
         })
     }
-})
+}); 
 
 
 
