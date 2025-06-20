@@ -138,11 +138,10 @@
               window.location.href = 'index.html';
             }
           } catch (error) {
-            console.error('Logout error: ', error); 
+            console.error('Logout error: ', error);
+            // alway redirect regardless of error
+            window.location.href = 'index.html';
           }
-          )
-          await fetch('/api/users/logout', { method: 'POST' });
-          window.location.href = 'index.html'; // go back to the login form
         }
 
         return {
