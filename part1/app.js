@@ -120,17 +120,17 @@ let db;
 
             await db.execute(`
         INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
-    ((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Max' AND u.username = 'alice123'),
-'2025-06-10 08:00:00', 30, 'Parklands', 'open'),
+        ((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Max' AND u.username = 'alice123'),
+    '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
 
-((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Bella' AND u.username = 'carol123'),
-'2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted'),
+    ((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Bella' AND u.username = 'carol123'),
+    '2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted'),
 
-((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Bear' AND u.username = 'alice123'),
-'2025-06-11 07:00:00', 60, 'Torrens River', 'open'),
+    ((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Bear' AND u.username = 'alice123'),
+    '2025-06-11 07:00:00', 60, 'Torrens River', 'open'),
 
-((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Winnie' AND u.username = 'grace123'),
-'2025-06-12 16:00:00', 30, 'Montrose Ave', 'open'),
+    ((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Winnie' AND u.username = 'grace123'),
+    '2025-06-12 16:00:00', 30, 'Montrose Ave', 'open'),
 
 ((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Levi' AND u.username = 'carol123'),
 '2025-06-13 08:30:00', 45, 'Adelaide University', 'completed')`);
