@@ -112,7 +112,9 @@ if (users[0].count === 0) {
         ('carol123', 'carol@example.com', 'hashed789', 'owner'),
         ('grace123', 'grace@example.com', 'hashed601', 'owner'),
         ('christinewalker', 'christine@example.com', 'hashed419', 'walker')`);
-        
+
+    await db.execute(`
+        `)
 }
 
 
