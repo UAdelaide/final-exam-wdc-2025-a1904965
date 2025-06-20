@@ -134,9 +134,11 @@
               window.location.href = 'index.html';
             } else {
               console.error('Logout failed');
-              // 
+              // force redirect even if logout fails
+              window.location.href = 'index.html';
             }
-          }
+          } catch {}
+          )
           await fetch('/api/users/logout', { method: 'POST' });
           window.location.href = 'index.html'; // go back to the login form
         }
