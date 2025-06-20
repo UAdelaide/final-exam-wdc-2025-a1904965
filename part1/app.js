@@ -140,10 +140,9 @@ if (users[0].count === 0) {
 
 }
     } catch (err) {
-        console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);    }
+        console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
+    }
 });
-
-
 
 
 // Route to return books as JSON
