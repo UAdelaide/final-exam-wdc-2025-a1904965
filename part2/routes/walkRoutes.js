@@ -38,7 +38,8 @@ router.post('/', async (req, res) => {
 // POST an application to walk a dog (from walker)
 router.post('/:id/apply', async (req, res) => {
   const requestId = req.params.id;
-  const { walker_id } = req.body;
+  const { walker_id } = req.session.user?.user_id;
+  
 
   try {
     await db.query(`
