@@ -28,18 +28,18 @@ let db;
             password: ''
         });
 
-await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
-await connection.end();
+        await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
+        await connection.end();
 
-db = await mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'DogWalkService'
-});
+        db = await mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: '',
+            database: 'DogWalkService'
+        });
 
-// Create table if it doesn't exist
-await db.execute(`
+        // Create table if it doesn't exist
+        await db.execute(`
     CREATE TABLE Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
@@ -50,7 +50,7 @@ await db.execute(`
 )
     `);
 
-await db.execute(`
+        await db.execute(`
     CREATE TABLE Dogs (
     dog_id INT AUTO_INCREMENT PRIMARY KEY,
     owner_id INT NOT NULL,
@@ -60,7 +60,7 @@ await db.execute(`
 )
     `);
 
-await db.execute(`
+        await db.execute(`
     CREATE TABLE WalkRequests (
     request_id INT AUTO_INCREMENT PRIMARY KEY,
     dog_id INT NOT NULL,
@@ -73,7 +73,7 @@ await db.execute(`
 )
     `);
 
-await db.execute(`
+        await db.execute(`
     CREATE TABLE WalkApplications (
     application_id INT AUTO_INCREMENT PRIMARY KEY,
     request_id INT NOT NULL,
@@ -86,7 +86,7 @@ await db.execute(`
 )
     `);
 
-await db.execute(`
+        await db.execute(`
     CREATE TABLE WalkRatings (
     rating_id INT AUTO_INCREMENT PRIMARY KEY,
     request_id INT NOT NULL,
@@ -102,10 +102,10 @@ await db.execute(`
 )
     `);
 
-// Insert data if table is empty
-const[users] = await db.execute('SELECT COUNT(*) AS count FROM Users');
-if (users[0].count === 0) {
-    await db.execute(`
+        // Insert data if table is empty
+        const [users] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+        if (users[0].count === 0) {
+            await db.execute(`
         INSERT INTO Users (username, email, password_hash, role) VALUES
         ('alice123', 'alice@example.com', 'hashed123', 'owner'),
         ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
@@ -113,7 +113,7 @@ if (users[0].count === 0) {
         ('grace123', 'grace@example.com', 'hashed601', 'owner'),
         ('christinewalker', 'christine@example.com', 'hashed419', 'walker')`);
 
-    await db.execute(`
+            await db.execute(`
         INSERT INTO Dogs (owner_id, name, size) VALUES
         ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
         ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
@@ -121,7 +121,7 @@ if (users[0].count === 0) {
         ((SELECT user_id FROM Users WHERE username = 'grace123'), 'Winnie', 'medium'),
         ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Levi', 'medium')`);
 
-    await db.execute(`
+            await db.execute(`
         INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
 ((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Max' AND u.username = 'alice123'),
 '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
@@ -138,21 +138,21 @@ if (users[0].count === 0) {
 ((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Levi' AND u.username = 'carol123'),
 '2025-06-13 08:30:00', 45, 'Adelaide University', 'completed')`);
 
-}
+        }
     } catch (err) {
         console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
     }
-}) ();
+})();
 
 
 // Route to return books as JSON
 app.get('/', async (req, res) => {
-  try {
-    const [books] = await db.execute('SELECT * FROM books');
-    res.json(books);
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch books' });
-  }
+    try {
+        const [books] = await db.execute('SELECT * FROM books');
+        res.json(books);
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch books' });
+    }
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
