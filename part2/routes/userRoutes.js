@@ -48,9 +48,11 @@ router.get('/me', async(req, res) => {
     // return current user data from session
     res.json(req.session.user);
   } catch (error) {
-    console.error('Error fetching current user:', error); 
+    console.error('Error fetching current user:', error);
+    res.status(500).json({ error: 'Failed to fetch current user' });
   }
-})
+});
+
 // POST a new user (simple signup)
 router.post('/register', async (req, res) => {
   const { username, email, password, role } = req.body;
