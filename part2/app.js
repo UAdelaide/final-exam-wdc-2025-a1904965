@@ -9,10 +9,10 @@ const app = express();
 // Import express-session module for server-side session management
 const session = require('express-session');
 
-// Session Management Middleware
+// Session Management Middleware to track user login state
 app.use(session({
     secret: 'dog-walk-secret', // the secret key for session encryption
-    resave: false, // don't save the session is unmodified
+    resave: false, // don't save the session if unmodified
     saveUninitialized: false, // don't create session until something is stored
     cookie: { secure: false } // set to true if using HTTPS
 }));
