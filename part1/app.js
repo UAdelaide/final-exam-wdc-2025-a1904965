@@ -159,7 +159,8 @@ app.get('/api/dogs', async (req, res) => {
         const [rows] = await db.execute('
             SELECT d.name AS dog_name, d.size, u.username AS owner_username
             FROM Dogs d
-            JOIN Users u ON d.owner_id = u.user');
+            JOIN Users u ON d.owner_id = u.user_id
+            ORDER BY d.name');
         res.json(books);
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch books' });
