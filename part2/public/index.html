@@ -42,14 +42,16 @@
       methods: {
         async login() {
           try {
-            const result = await fetch('/api/users/login', {
+            const res = await fetch('/api/users/login', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
                 email: this.loginForm.username + '@example.com',
                 password: this.login.password
               })
-            })
+            });
+            const data = await res.json();
+            if (!res.ok)
           }
         }
       }
