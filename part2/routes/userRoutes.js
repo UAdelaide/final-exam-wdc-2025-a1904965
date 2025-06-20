@@ -67,7 +67,12 @@ router.post('/login', async (req, res) => {
 // destroys session and clears cookie data
 router.post('/logout', async (req, res) => {
   // destroy the server-side session completely
-  req.session.destroy()
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Session destruction error', err);
+      
+    }
+  })
   const { username, password } = req.body;
 
   try {
