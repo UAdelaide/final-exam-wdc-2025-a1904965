@@ -36,7 +36,7 @@ db = await mysql.createConnection({
     user: 'root',
     password: '',
     database: 'DogWalkService'
-})
+});
     }
 });
 
