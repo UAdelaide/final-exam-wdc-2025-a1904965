@@ -64,6 +64,29 @@ router.post('/login', async (req, res) => {
 });
 
 // POST logout
+// destroys session and clears cookie data
+router.post('/logout', async (req, res) => {
+  const { username, password } = req.body;
 
+  try {
+    // query database to find user with matching username and password
+    const [rows] = await db.query(`
+      SELECT user_id, username, role FROM Users
+      WHERE username = ? AND password_hash = ?
+    `, [username, password]); // changed from email to username
+
+    // check if user exists with provided credentials
+    if (rows.length === 0) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    // Store logged-in user’s information in server-side session for future access
+    // this allows user to stay logged in across page navigation
+    req.session.user = rows[0];
+    res.json({ message: 'Login successful', user: rows[0] });
+  } catch (error) {
+    res.status(500).json({ error: 'Login failed' });
+  }
+});
 
 module.exports = router;
