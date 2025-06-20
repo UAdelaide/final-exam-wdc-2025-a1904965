@@ -117,12 +117,9 @@ if (users[0].count === 0) {
         INSERT INTO Dogs (owner_id, name, size) VALUES
         ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
         ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
-
-((SELECT user_id FROM Users WHERE username = 'alice123'), 'Bear', 'large'),
-
-((SELECT user_id FROM Users WHERE username = 'grace123'), 'Winnie', 'medium'),
-
-((SELECT user_id FROM Users WHERE username = 'carol123'), 'Levi', 'medium');`)
+        ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Bear', 'large'),
+        ((SELECT user_id FROM Users WHERE username = 'grace123'), 'Winnie', 'medium'),
+        ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Levi', 'medium');`)
 }
 
 
