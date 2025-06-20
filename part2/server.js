@@ -1,6 +1,6 @@
 // server.js file created to launch the server (Main server startup file)
 
-const app = require('/app');
+const app = require('./app');
 
 const PORT = process.env.PORT || 8080;
 
