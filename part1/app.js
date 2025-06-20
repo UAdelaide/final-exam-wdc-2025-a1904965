@@ -201,7 +201,8 @@ app.get('/api/walkers/summary', async (req, res) => {
                 u.username AS walker_username,
                 COUNT(wr.rating_id) AS total_ratings,
                 CASE
-                    WHEN CONUT 
+                    WHEN CONUT(wr.rating_id) > 0 THEN ROUND(AVG(wr.rating), 1)
+                    ELSE NULL
                 ROUND(AVG(r.rating), 1) AS average_rating,
                 COUNT(DISTINCT wr.request_id) AS completed_walks
             FROM Users u
