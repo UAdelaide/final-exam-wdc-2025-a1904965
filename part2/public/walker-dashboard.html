@@ -85,7 +85,7 @@
 
             message.value = result.message;
             error.value = '';
-            loadWalks(); 
+            loadWalks(); // reload walks to show updated status
           } catch (err) {
             error.value = err.message;
             message.value = '';
@@ -130,6 +130,7 @@
         }
         return {
           walks,
+          currentUser,
           message,
           error,
           applyToWalk,
