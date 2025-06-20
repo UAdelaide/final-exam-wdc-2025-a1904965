@@ -30,7 +30,7 @@ let db;
         await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
         await connection.end();
 
-        // Connect to the 'DogWalkService' database 
+        // Connect to the 'DogWalkService' database
         db = await mysql.createConnection({
             host: 'localhost',
             user: 'root',
@@ -38,7 +38,7 @@ let db;
             database: 'DogWalkService'
         });
 
-        // Create table if it doesn't exist
+        // Create tables if it doesn't exist
         await db.execute(`
     CREATE TABLE IF NOT EXISTS Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
