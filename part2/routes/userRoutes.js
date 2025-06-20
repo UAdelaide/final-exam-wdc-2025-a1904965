@@ -29,7 +29,10 @@ router.get('/my-dogs', async(req, res) => {
       ORDER BY name
       `, [req.session.user.user_id]);
 
-      res.json(rows); 
+      res.json(rows);
+  } catch (error) {
+    console.error('Error fetching user dogs: ', error);
+    res.status()
   }
 })
 
