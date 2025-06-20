@@ -129,8 +129,19 @@
           }
         }
 
+        async function loadUserDogs() {
+          try {
+            const res = await fetch('/api/dogs/my-dogs');
+            if (!res.ok) throw new Error('Failed to load dogs');
+            userDogs.value = await res.json();
+          } catch (err) {
+            error.value = 'Failed to load your dogs';
+          }
+        }
+
         onMounted(() => {
           loadWalks();
+          loadUserDogs(); // load user's dogs on page load
         });
 
         async function logout() {
