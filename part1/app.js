@@ -148,7 +148,7 @@ let db;
                 5, 'Excellent Service', '2025-06-10 10:00:00')`),
             (9, (SELECT user_id FROM Users WHERE username = 'christinewalker'),
                 (SELECT user_id FROM Users WHERE username = 'grace123'),
-                5, 'Excellent Service', '2025-06-12 18:00:00')
+                4, 'Excellent Service', '2025-06-12 18:00:00')
                 `);
         }
     } catch (err) {
