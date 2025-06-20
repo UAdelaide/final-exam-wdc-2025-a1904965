@@ -159,8 +159,8 @@
           try {
             const res = await fetch('/api/dogs/my-dogs');
             if (!res.ok) throw new Error('Failed to load dogs');
-            user
-          }
+            userDogs.value = await res.json();
+          } catch (err) 
         }
 
         return {
