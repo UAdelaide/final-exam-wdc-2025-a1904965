@@ -38,8 +38,9 @@ db = await mysql.createConnection({
     database: 'DogWalkService'
 });
 
-// Create a table if it doesn't exist
-
+// Create table if it doesn't exist
+await db.execute(`
+    CREATE TABLE IF NOT `)
 
 
 
