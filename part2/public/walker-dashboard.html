@@ -81,11 +81,11 @@
 
             const result = await res.json();
 
-            if (!res.ok) throw new Error(result.error || 'Error applying to walk);
+            if (!res.ok) throw new Error(result.error || 'Error applying to walk');
 
             message.value = result.message;
             error.value = '';
-            await loadWalkRequests();
+            loadWalks(); 
           } catch (err) {
             error.value = err.message;
             message.value = '';
