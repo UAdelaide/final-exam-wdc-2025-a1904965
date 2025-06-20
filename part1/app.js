@@ -167,6 +167,7 @@ app.use('/users', usersRouter);
 // API Routes Defined:
 
 // Routes at /api/dogs to return as JSON
+// returns all dogs and their owners
 app.get('/api/dogs', async (req, res) => {
     try {
         const [rows] = await db.execute(`
@@ -181,6 +182,7 @@ app.get('/api/dogs', async (req, res) => {
 });
 
 // Routes at /api/walkrequests/open to return as JSON
+// returns all open walk requests 
 app.get('/api/walkrequests/open', async (req, res) => {
     try {
         const [rows] = await db.execute(`
