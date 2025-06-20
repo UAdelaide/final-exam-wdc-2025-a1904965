@@ -6,7 +6,10 @@ const app = express();
 
 const session = require('express-session');
 
-// 
+// Session Middleware
+app.use(session({
+    
+}))
 
 // Middleware
 app.use(express.json());
