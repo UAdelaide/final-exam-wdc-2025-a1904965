@@ -57,8 +57,10 @@
             if (data.user.role === 'owner') {
               window.location.href = 'owner-dashboard.html';
             } else {
-              window.location.href - 'walker-dashboard.html'
+              window.location.href - 'walker-dashboard.html';
             }
+            } catch (err) {
+              alert('Login failed: ' )
             }
           }
         }
