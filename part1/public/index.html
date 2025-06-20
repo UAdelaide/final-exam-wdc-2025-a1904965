@@ -21,14 +21,6 @@
             to { background-position: 100% 100%; }
         }
 
-
-        header {
-            font-size: 20px;
-            text-align: center;
-            animation: spin 5s linear infinite, flash 5s;
-            color: white;
-        }
-
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -39,7 +31,13 @@
             50% { opacity: 0.3; background: yellow; }
         }
 
-        /* Cognitive Load Violation 1: Information overload with spinning/flashing header  */
+        /* Cognitive Load Violation 1: Information overload with spinning/flashing header */
+        header {
+            font-size: 20px;
+            text-align: center;
+            animation: spin 5s linear infinite, flash 5s;
+            color: white;
+        }
 
 
     </style>
