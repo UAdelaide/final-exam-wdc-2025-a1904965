@@ -6,6 +6,7 @@ require('dotenv').config();
 
 const app = express();
 
+// Import express-session module for server-side session management
 const session = require('express-session');
 
 // Session Management Middleware
