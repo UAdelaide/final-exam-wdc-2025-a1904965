@@ -73,7 +73,9 @@ router.post('/logout', async (req, res) => {
       return res.status(500).json({ error: 'Failed to logout' });
     }
 
-    
+    // clears session cookie from client browser 
+
+
   })
   const { username, password } = req.body;
 
