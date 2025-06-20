@@ -144,8 +144,8 @@ let db;
             ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Levi', 'medium')`);
 
             await db.execute(`
-                INSERT INTO Dogs (owner_id, name, size) VALUES
-                ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
+            INSERT INTO Dogs (owner_id, name, size) VALUES
+            ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
                 ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
                 ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Bear', 'large'),
                 ((SELECT user_id FROM Users WHERE username = 'grace123'), 'Winnie', 'medium'),
