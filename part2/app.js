@@ -31,5 +31,20 @@ app.use('/api/users', userRoutes);
 // add /api/dogs endpoint from part 1
 
 
+// Routes at /api/dogs to return as JSON
+// returns all dogs and their owners
+app.get('/api/dogs', async (req, res) => {
+    try {
+        const [rows] = await db.execute(`
+            SELECT d.name AS dog_name, d.size, u.username AS owner_username
+            FROM Dogs d
+            JOIN Users u ON d.owner_id = u.user_id
+            `);
+        res.json(rows);
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch dogs' });
+    }
+});
+
 // Export the app instead of listening here
 module.exports = app;
