@@ -128,6 +128,24 @@
           this.dogsError = '';
 
           try {
+
+
+
+            const photoResponse = await fetch('https://dog.ceo/api/breeds/image/random');
+                  const photoData = await photoResponse.json();
+
+                  return {
+                    ...dog,
+                    photo: photoData.status === 'success' ? photoData.message : 'https://via.placeholder.com/60x60?text=Dog'
+                  };
+                } catch (error) {
+                  return {
+                    ...dog,
+                    photo: 'https://via.placeholder.com/60x60?text=Dog'
+                  };
+                }
+              })
+            );
             const response = await fetch('/api/dogs');
             if (!response.ok) {
               throw new Error('Failed to fetch dogs');
@@ -137,7 +155,9 @@
             // add random dog photos from dogs.ceo API
             this.dogs = await Promise.all(
               dogsData.mpa(async (dog) => {
+                try {
 
+                }
               })
             )
         }
