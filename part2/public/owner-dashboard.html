@@ -137,7 +137,9 @@
               // force redirect even if logout fails
               window.location.href = 'index.html';
             }
-          } catch {}
+          } catch (error) {
+            console.error('Logout error: ', error); 
+          }
           )
           await fetch('/api/users/logout', { method: 'POST' });
           window.location.href = 'index.html'; // go back to the login form
