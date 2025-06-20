@@ -209,8 +209,8 @@ app.get('/api/walkers/summary', async (req, res) => {
                     THEN wa.request_id
                 END) AS completed_walks
             FROM Users u
-            LEFT JOIN WalkApplications wa ON u.user
-            LEFT JOIN WalkRatings r ON u.user_id = r.walker_id
+            LEFT JOIN WalkApplications wa ON u.user_id = wa.walker_id
+            LEFT JOIN WalkRatings wr ON u.user_id = r.walker_id
             LEFT JOIN WalkRequests wr ON wr.request_id = r.request_id AND wr.status = 'completed'
             WHERE u.role = 'walker'
             GROUP BY u.user_id
