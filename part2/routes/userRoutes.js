@@ -36,6 +36,7 @@ router.get('/me', (req, res) => {
 });
 
 // POST login
+// authenticates user and creates session 
 // updated to accept username instead of email for login
 router.post('/login', async (req, res) => {
   // changed from email to username
