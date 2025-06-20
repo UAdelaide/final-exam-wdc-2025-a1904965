@@ -21,7 +21,9 @@ router.get('/my-dogs', async(req, res) => {
       return res.status(401).json({ error: 'Not Authenticated' });
     }
 
-    
+    // query database for dogs owned by current user
+    const[rows] = await db.query (`
+      `)
   }
 })
 
