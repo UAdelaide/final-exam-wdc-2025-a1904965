@@ -56,7 +56,7 @@ router.post('/login', async (req, res) => {
 
     // Store logged-in user’s information in server-side session for future access
     // this allows user to stay logged in across page navigation
-    req.session.user = rows[0]; // this creates the session 
+    req.session.user = rows[0]; // this creates the session
     res.json({ message: 'Login successful', user: rows[0] });
   } catch (error) {
     res.status(500).json({ error: 'Login failed' });
