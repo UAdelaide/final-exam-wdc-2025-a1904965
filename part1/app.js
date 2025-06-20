@@ -37,6 +37,19 @@ db = await mysql.createConnection({
     password: '',
     database: 'DogWalkService'
 });
+
+// Create a table if it doesn't exist
+
+
+
+
+
+
+
+
+
+
+
     }
 });
 
