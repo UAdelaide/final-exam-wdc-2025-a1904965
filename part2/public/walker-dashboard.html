@@ -86,12 +86,15 @@
           try {
             const res = await fetch('/api/users/me');
             if(!res.ok) throw new Error('Failed to get current user');
-            currentUser.value = await res.json(); 
+            currentUser.value = await res.json();
+          } catch (err) {
+            error.value = 'Failed to get user information';
           }
         }
 
         onMounted(() => {
           loadWalkRequests();
+          getCurrentUser();
         });
 
         async function logout() {
