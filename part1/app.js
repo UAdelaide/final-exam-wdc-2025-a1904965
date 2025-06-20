@@ -141,10 +141,7 @@ let db;
     }
 })();
 
-Define the routes at the paths
 
-/api/dogs
-/api/walkrequests/open
 /api/walkers/summary
 
 // Route handlers
@@ -152,6 +149,32 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // API Routes Defined
+
+// Routes at /api/dogs
+app.get('/api/dogs', async (req, res) => {
+    try {
+        const [rows] = await db.execute(`
+            SELECT d.name AS dog_name, d.size, u.username AS owner_username
+            FROM Dogs d
+            JOIN Users u ON d.owner_id = u.user_id`);
+        res.json(rows);
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch dogs' });
+    }
+});
+
+// Routes at /api/walkrequests/open
+app.get('/api/dogs', async (req, res) => {
+    try {
+        const [rows] = await db.execute(`
+            SELECT d.name AS dog_name, d.size, u.username AS owner_username
+            FROM Dogs d
+            JOIN Users u ON d.owner_id = u.user_id`);
+        res.json(rows);
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch dogs' });
+    }
+});
 
 // Routes at /api/dogs
 app.get('/api/dogs', async (req, res) => {
