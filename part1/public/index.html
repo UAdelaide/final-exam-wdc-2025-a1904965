@@ -165,11 +165,12 @@
             methods: {
                 async bestDog() {
                     try {
-                        // Call the DogCEO API to get a random dog image 
+                        // Call the DogCEO API to get a random dog image
                         const response = await fetch('https://dog.ceo/api/breeds/image/random');
                         const data = await response.json();
-                        this.dogImage = data.message;
+                        this.dogImage = data.message; // this stores the image URL
 
+                        //
                         const names = ['Levi', 'Hange', 'Erwin', 'Sasha', 'Winston', 'Mikasa'];
                         const breeds = ['Corgi', 'Golden Retriever', 'Labrador', 'German Shepherd'];
 
