@@ -11,7 +11,7 @@ app.use(session({
     secret: 'dog-walk-secret',
     resave: false,
     saveUninitialized: false;
-    cookie: { secure: false }
+    cookie: { secure: false } 
 }));
 
 // Middleware
