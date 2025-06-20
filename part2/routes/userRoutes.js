@@ -36,18 +36,20 @@ router.get('/me', (req, res) => {
 });
 
 // POST login
-// authenticates user and creates session 
+// authenticates user and creates session
 // updated to accept username instead of email for login
 router.post('/login', async (req, res) => {
   // changed from email to username
   const { username, password } = req.body;
 
   try {
+    // query database to find user with matching username and password
     const [rows] = await db.query(`
       SELECT user_id, username, role FROM Users
       WHERE username = ? AND password_hash = ?
     `, [username, password]); // changed from email to username
 
+    
     if (rows.length === 0) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
