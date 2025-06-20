@@ -8,8 +8,7 @@ const session = require('express-session');
 
 // Session Management Middleware
 app.use(session({
-
-
+    sec
 }));
 
 // Middleware
