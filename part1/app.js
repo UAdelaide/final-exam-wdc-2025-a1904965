@@ -26,9 +26,11 @@ let db;
             host: 'localhost',
             user: 'root',
             password: ''
-        })
+        });
+
+
     }
-}); 
+});
 
 
 
