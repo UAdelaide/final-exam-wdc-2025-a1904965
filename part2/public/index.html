@@ -69,11 +69,9 @@
           </div>
 
           <!-- No dogs message -->
-           <div v-if = "!loadingDogs && dogs.length === 0 && !dogsError
-
-
-
-
+           <div v-if = "!loadingDogs && dogs.length === 0 && !dogsError">
+            <p>No dogs found in the database.</p>
+           </div>
        </div>
     </form>
   </div>
