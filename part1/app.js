@@ -143,8 +143,10 @@ let db;
 
             await db.execute(`
             INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments, rated_at) VALUES
-                (6, (SELECT user_id FROM Users WHERE username = 'bobwalker), (SELECT user_id FROM Users WHERE username = 'alice123'),
+                (6, (SELECT user_id FROM Users WHERE username = 'bobwalker),
+                (SELECT user_id FROM Users WHERE username = 'alice123'),
                 5, 'Excellent Service', '2025-06-10 10:00:00')`);
+                ()
             ()
         }
     } catch (err) {
