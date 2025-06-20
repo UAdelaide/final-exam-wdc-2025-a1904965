@@ -136,12 +136,7 @@ let db;
         '2025-06-13 08:30:00', 45, 'Adelaide University', 'completed')`);
 
         await db.execute(`
-            INSERT INTO Dogs (owner_id, name, size) VALUES
-            ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
-            ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
-            ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Bear', 'large'),
-            ((SELECT user_id FROM Users WHERE username = 'grace123'), 'Winnie', 'medium'),
-            ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Levi', 'medium')`);
+            INSERT INTO `);
 
             await db.execute(`
             INSERT INTO Dogs (owner_id, name, size) VALUES
