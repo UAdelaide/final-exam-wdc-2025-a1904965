@@ -48,7 +48,7 @@ router.get('/me', async(req, res) => {
     // return current user data from session
     res.json(req.session.user);
   } catch (error) {
-    con
+    console.error('Error fetching current user:', error); 
   }
 })
 // POST a new user (simple signup)
