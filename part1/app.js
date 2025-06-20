@@ -138,7 +138,7 @@ let db;
         await db.execute(`
             INSERT INTO WalkApplications (request_id, walker_id, applied_at, status) VALUES
             (6, (SELCT user_id FROM Users WHERE username = 'bobwalker'), '2025-6-10 08:00:00', 'open'),
-            
+            (9, (SELECT user_id FROM Users WHERE username = 'christinewalker'))
             `);
 
             await db.execute(`
