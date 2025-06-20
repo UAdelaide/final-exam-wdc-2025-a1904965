@@ -182,7 +182,7 @@ app.get('/api/dogs', async (req, res) => {
 });
 
 // Routes at /api/walkrequests/open to return as JSON
-// returns all open walk requests 
+// returns all open walk requests
 app.get('/api/walkrequests/open', async (req, res) => {
     try {
         const [rows] = await db.execute(`
@@ -199,6 +199,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
 });
 
 // Routes at /api/walkers/summary to return as JSON
+// returns summary of walkers and their ratings
 app.get('/api/walkers/summary', async (req, res) => {
     try {
         const [rows] = await db.execute(`
@@ -228,7 +229,6 @@ app.get('/api/walkers/summary', async (req, res) => {
 });
 
 // Server
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
