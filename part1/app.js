@@ -15,9 +15,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
 let db;
 
 (async () => {
@@ -150,6 +147,9 @@ Define the routes at the paths
 /api/walkrequests/open
 /api/walkers/summary
 
+// Route handlers
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
 
 // Routes at /api/dogs
 app.get('/api/dogs', async (req, res) => {
