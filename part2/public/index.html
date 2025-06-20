@@ -49,6 +49,7 @@
             // send POST request to the backend login API endpoint (server with username and password)
             const res = await fetch('/api/users/login', {
               method: 'POST',
+              credentials: 'include', // tells the browser to send cookies
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
                 username: this.loginForm.username,
