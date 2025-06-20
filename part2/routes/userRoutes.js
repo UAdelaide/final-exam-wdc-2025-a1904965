@@ -23,7 +23,11 @@ router.get('/my-dogs', async(req, res) => {
 
     // query database for dogs owned by current user
     const[rows] = await db.query (`
-      `)
+      SELECT dog_id, name, size
+      FROM Dogs
+      WHERE owner_id = ?
+      ORDER BY name
+      `) 
   }
 })
 
