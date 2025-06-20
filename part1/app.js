@@ -136,7 +136,8 @@ let db;
         '2025-06-13 08:30:00', 45, 'Adelaide University', 'completed')`);
 
         await db.execute(`
-            INSERT INTO `);
+            INSERT INTO WalkApplications (request_id, walker_id, applied_at, status) VALUES
+            ()`);
 
             await db.execute(`
             INSERT INTO Dogs (owner_id, name, size) VALUES
