@@ -36,8 +36,9 @@ router.get('/my-dogs', async(req, res) => {
   }
 });
 
-// 
-
+// GET /api/users/me
+// returns the current logged-in user's information
+router.get('/')
 // POST a new user (simple signup)
 router.post('/register', async (req, res) => {
   const { username, email, password, role } = req.body;
