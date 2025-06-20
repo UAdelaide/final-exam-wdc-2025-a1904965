@@ -131,7 +131,10 @@
             });
 
             if (res.ok) {
-              window.location.href = 'index.html'; 
+              window.location.href = 'index.html';
+            } else {
+              console.error('Logout failed');
+              // 
             }
           }
           await fetch('/api/users/logout', { method: 'POST' });
