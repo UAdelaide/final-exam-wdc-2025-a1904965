@@ -129,7 +129,8 @@
           }
         }
 
-        const 
+        const userDogs = ref([]); // stores dogs owned by current user
+
         async function loadUserDogs() {
           try {
             const res = await fetch('/api/dogs/my-dogs');
