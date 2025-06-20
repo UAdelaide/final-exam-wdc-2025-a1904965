@@ -41,7 +41,9 @@ router.get('/my-dogs', async(req, res) => {
 router.get('/me', async(req, res) => {
   try {
     // check if user is logged in via session
-    if(!req.)
+    if(!req.session.user) {
+      return res.status(401).
+    }
   }
 })
 // POST a new user (simple signup)
