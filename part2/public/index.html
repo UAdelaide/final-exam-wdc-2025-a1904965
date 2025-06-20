@@ -61,17 +61,16 @@
                     :src = "dog.photo"
                     :alt = "dog.name"
                     style = "width: 60px, height: 60px; object-fit: cover; border-radius: 4px;"
-                    @error = "handleImageError">
+                    @error = "handleImageError"
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <!-- No dogs message -->
-           <div v-if = "!loadingDogs && dogs.length === 0 && !dogsError">
-            <p>No dogs found in the database.</p>
-           </div>
+
+
+
        </div>
     </form>
   </div>
@@ -86,11 +85,7 @@
           loginForm: {
             username: '',
             password: ''
-          },
-          // dogs display properties
-          dogs: [],
-          loadingDogs: false,
-          dogsError: ''
+          }
         };
       },
       methods: {
@@ -120,44 +115,6 @@
             // Display error message to user if login fails
             alert('Login failed: ' + err.message);
           }
-        },
-
-        // load all dogs with random photos using DOGS API
-        async loadAllDog() {
-          this.loadingDogs = true;
-          this.dogsError = '';
-
-          try {
-            const photoResponse = await fetch('https://dog.ceo/api/breeds/image/random');
-                  const photoData = await photoResponse.json();
-
-                  return {
-                    ...dog,
-                    photo: photoData.status === 'success' ? photoData.message : 'https://via.placeholder.com/60x60?text=Dog'
-                  };
-                } catch (error) {
-                  return {
-                    ...dog,
-                    photo: 'https://via.placeholder.com/60x60?text=Dog'
-                  };
-                }
-              })
-            );
-            
-            const response = await fetch('/api/dogs');
-            if (!response.ok) {
-              throw new Error('Failed to fetch dogs');
-            }
-            const dogsData = await response.json();
-
-            // add random dog photos from dogs.ceo API
-            this.dogs = await Promise.all(
-              dogsData.mpa(async (dog) => {
-                try {
-
-                }
-              })
-            )
         }
       }
     }).mount('#app');
