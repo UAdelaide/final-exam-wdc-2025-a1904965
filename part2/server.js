@@ -4,7 +4,7 @@ const app = require('./app');
 
 const PORT = process.env.PORT || 8080;
 
-// this starts the Express server
+// this starts the Express server and listens on specified port
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
