@@ -28,7 +28,7 @@ let db;
             password: ''
         });
 
-
+await connection.query()
     }
 });
 
