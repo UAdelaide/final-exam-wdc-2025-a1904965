@@ -137,7 +137,7 @@ let db;
 
         await db.execute(`
             INSERT INTO WalkApplications (request_id, walker_id, applied_at, status) VALUES
-            ()`);
+            ((SELCT wr.request_id FROM ))`);
 
             await db.execute(`
             INSERT INTO Dogs (owner_id, name, size) VALUES
