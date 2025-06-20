@@ -125,7 +125,9 @@
 
         async function logout() {
           try{
-            const 
+            const res = await fetch('/api/users/logout', {
+              method: 'POST'
+            })
           }
           await fetch('/api/users/logout', { method: 'POST' });
           window.location.href = 'index.html'; // go back to the login form
