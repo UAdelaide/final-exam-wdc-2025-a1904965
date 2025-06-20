@@ -46,8 +46,8 @@
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                email: this.loginForm.username + '@example.com',
-                password: this.login.password
+                username: this.loginForm.username, 
+                password: this.loginForm.password
               })
             });
             const data = await res.json();
