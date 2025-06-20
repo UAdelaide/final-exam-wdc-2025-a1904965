@@ -74,7 +74,10 @@ router.post('/logout', async (req, res) => {
     }
 
     // clears session cookie from client browser
-    res.clearCookie('connect.sid'); // de
+    res.clearCookie('connect.sid'); // defualt session cookie name for express-session
+
+    // send success response confirming logout
+    res.json({})
 
 
   })
