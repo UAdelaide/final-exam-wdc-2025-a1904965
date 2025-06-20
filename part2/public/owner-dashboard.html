@@ -155,14 +155,6 @@
           }
         }
 
-        async function loadUserDogs() {
-          try {
-            const res = await fetch('/api/dogs/my-dogs');
-            if (!res.ok) throw new Error('Failed to load dogs');
-            userDogs.value = await res.json();
-          } catch (err) 
-        }
-
         return {
           form,
           walks,
