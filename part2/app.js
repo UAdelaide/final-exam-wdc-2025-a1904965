@@ -14,8 +14,7 @@ app.use(session({
     secret: 'dog-walk-secret', // the secret key for session encryption
     resave: false, // don't save the session if unmodified
     saveUninitialized: false, // don't save empty sessions
-    cookie: { secure: false }, // set to true if using HTTPS
-    credentials: 'include'
+    cookie: { secure: false } // set to true if using HTTPS
 }));
 
 // Middleware
