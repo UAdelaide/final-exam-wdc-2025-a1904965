@@ -1,4 +1,4 @@
-// server.js file created to launch the server
+// server.js file created to launch the server (Main server startup file)
 
 const app = require('/app');
 
