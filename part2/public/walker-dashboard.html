@@ -81,11 +81,17 @@
           loadWalkRequests();
         });
 
+        async function logout() {
+          await fetch('/api/users/logout', { method: 'POST' });
+          window.location.href = 'index.html'; // go back to the login form
+        }
+
         return {
           walks,
           message,
           error,
-          applyToWalk
+          applyToWalk,
+          logout
         };
       }
     }).mount('#app');
