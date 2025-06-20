@@ -30,7 +30,7 @@ CREATE TABLE `Dogs` (
   PRIMARY KEY (`dog_id`),
   KEY `owner_id` (`owner_id`),
   CONSTRAINT `Dogs_ibfk_1` FOREIGN KEY (`owner_id`) REFERENCES `Users` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,7 @@ CREATE TABLE `Dogs` (
 
 LOCK TABLES `Dogs` WRITE;
 /*!40000 ALTER TABLE `Dogs` DISABLE KEYS */;
+INSERT INTO `Dogs` VALUES (1,1,'Max','medium'),(2,3,'Bella','small'),(3,1,'Charlie','large'),(4,4,'Winnie','medium'),(5,3,'Rocky','medium');
 /*!40000 ALTER TABLE `Dogs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +60,7 @@ CREATE TABLE `Users` (
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,6 +69,7 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
+INSERT INTO `Users` VALUES (1,'alice123','alice@example.com','hashed123','owner','2025-06-20 02:57:04'),(2,'bobwalker','bob@example.com','hashed456','walker','2025-06-20 02:57:04'),(3,'carol123','carol@example.com','hashed789','owner','2025-06-20 02:57:04'),(4,'grace123','grace@example.com','hashed601','owner','2025-06-20 02:57:04'),(5,'christinewalker','christine@example.com','hashed419','walker','2025-06-20 02:57:04');
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,7 +156,7 @@ CREATE TABLE `WalkRequests` (
   PRIMARY KEY (`request_id`),
   KEY `dog_id` (`dog_id`),
   CONSTRAINT `WalkRequests_ibfk_1` FOREIGN KEY (`dog_id`) REFERENCES `Dogs` (`dog_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -163,6 +165,7 @@ CREATE TABLE `WalkRequests` (
 
 LOCK TABLES `WalkRequests` WRITE;
 /*!40000 ALTER TABLE `WalkRequests` DISABLE KEYS */;
+INSERT INTO `WalkRequests` VALUES (1,1,'2025-06-10 08:00:00',30,'Parklands','open','2025-06-20 02:57:56'),(2,2,'2025-06-10 09:30:00',45,'Beachside Ave','accepted','2025-06-20 02:57:56'),(3,3,'2025-06-11 07:00:00',60,'Torrens River','open','2025-06-20 02:57:56'),(4,4,'2025-06-12 16:00:00',30,'Montrose Ave','open','2025-06-20 02:57:56'),(5,5,'2025-06-13 08:30:00',45,'Adelaide University','completed','2025-06-20 02:57:56');
 /*!40000 ALTER TABLE `WalkRequests` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -175,4 +178,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-06-20  2:27:24
+-- Dump completed on 2025-06-20  3:08:14
