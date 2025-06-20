@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Dog of the Day - badly designed</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -10,25 +11,44 @@
         body {
             font-family: 'papyrus', fantasy;
             background: radial-gradient(#a400ff 0, #3b3b3b 10%, #d6d2d200 15%, #0b243a 50%, #d6d2d2 65%, #26483f 80%, #d6d2d200 95%),
-            repeating-linear-gradient(45deg, #a78b4178, #a548a07a 50px),
-            linear-gradient(135deg, #634610, #71b737 5px);
+                repeating-linear-gradient(45deg, #a78b4178, #a548a07a 50px),
+                linear-gradient(135deg, #634610, #71b737 5px);
             animation: bgmove 3s infinite alternate;
             margin: 0;
         }
 
-        @keyframes bgmove{
-            from { background-position: 0 0; }
-            to { background-position: 100% 100%; }
+        @keyframes bgmove {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 100% 100%;
+            }
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         @keyframes flash {
-            0%, 100% { opacity: 1; background: red; }
-            50% { opacity: 0.3; background: yellow; }
+
+            0%,
+            100% {
+                opacity: 1;
+                background: red;
+            }
+
+            50% {
+                opacity: 0.3;
+                background: yellow;
+            }
         }
 
         /* Cognitive Load Violation 1: Information overload with spinning header */
@@ -61,15 +81,15 @@
             color: white;
             border: none;
             margin: 2px;
-            cursor:grab;
+            cursor: grab;
         }
 
         /* Kinematic Load Violation 2: Controls are scattered far apart */
         .far-apart {
             display: flex;
             justify-content: space-between;
-            width:100%;
-            padding:20px;
+            width: 100%;
+            padding: 20px;
         }
 
         /* Accessibility Violation 1: Poor colour contrast */
@@ -99,69 +119,70 @@
 
 
 <body>
-    <div id = "app">
+    <div id="app">
         <!-- COGNITIVE LOAD VIOLATIONS: -->
-         <header>
-            <h1 class = "big-title">ELITE dOg oF tHE dAy</h1>
-            <p class = "blinking-text">DO NOT MISS YOUR CHANCE - WORLD'S BEST DOG WALKERS</p>
-         </header>
+        <header>
+            <h1 class="big-title">ELITE dOg oF tHE dAy</h1>
+            <p class="blinking-text">DO NOT MISS YOUR CHANCE - WORLD'S BEST DOG WALKERS</p>
+        </header>
 
-         <main>
+        <main>
             <!-- KINEMATIC LOAD VIOLATIONS:  -->
-             <div class = "far-apart">
-                <button type = button class = "tiny-button" @click="bestDog">New Dog</button>
-                <button type = button class = "tiny-button" @click="bookWalk">BOOK NOW</button>
-             </div>
+            <div class="far-apart">
+                <button type=button class="tiny-button" @click="bestDog">New Dog</button>
+                <button type=button class="tiny-button" @click="bookWalk">BOOK NOW</button>
+            </div>
 
             <!-- ACCESSIBILITY VIOLATIONS:  -->
-             <!-- Images without alt text, flashing -->
-              <img v-if="dogImage" :src="dogImage"  alt = "" class = "dog-image">
+            <!-- Images without alt text, flashing -->
+            <img v-if="dogImage" :src="dogImage" alt="" class="dog-image">
 
-              <!-- Poor contrast text -->
-              <div class = "bad-contrast">
+            <!-- Poor contrast text -->
+            <div class="bad-contrast">
                 <h3>Dog Details</h3>
                 <p><strong>Name:</strong> {{ dogName }}</p>
                 <p><strong>Breed:</strong> {{ dogBreed }}</p>
                 <p><strong>Age:</strong> {{ dogAge }}</p>
-              </div>
-         </main>
-         </div>
+            </div>
+        </main>
+    </div>
 
-         <script>
-            const { createApp } = Vue;
+    <script>
+        const { createApp } = Vue;
 
-            createApp({
-                data() {
-                    return{
-                        dogImage: '',
-                        dogName: 'Mr Winston',
-                        dogBreed: 'Corgi',
-                        dogAge: 2
+        createApp({
+            data() {
+                return {
+                    dogImage: '',
+                    dogName: 'Mr Winston',
+                    dogBreed: 'Corgi',
+                    dogAge: 2
+                }
+            },
+
+            methods: {
+                async bestDog() {
+                    try {
+                        const response = await fetch('https://dog.ceo/api/breeds/image/random');
+                        const data = await response.json();
+                        this.dogImage = data.message;
+
+                        const names = ['Levi', 'Hange', 'Erwin', 'Sasha', 'Winston', 'Mikasa'];
+                        const breeds = ['Corgi', 'Golden Retreiver', 'Labrador', 'German Shepherd'];
+
+                        this.dogName = names[Math.floor(Math.random() * names.length)];
+                        this.dogBreed = breeds[Math.floor(Math.random() * breeds.length)];
+                        this.dogAge = Math.floor(Math.random() * 12) + 1;
+                    } catch (error) {
+                        console.error('Error fetching dog:', error);
                     }
-                },
-
-                methods: {
-                    async bestDog() {
-                        try {
-                            const response = await fetch('https://dog.ceo/api/breeds/image/random');
-                            const data = await response.json();
-                            this.dogImage = data.message;
-
-                            const names = ['Levi', 'Hange', 'Erwin', 'Sasha', 'Winston', 'Mikasa'];
-                            const breeds = ['Corgi', 'Golden Retreiver', 'Labrador', 'German Shepherd'];
-
-                            this.dogName = names[Math.floor(Math.random() * names.length)];
-                            this.dogBreed = breeds[Math.floor(Math.random() * breeds.length)];
-                            this.dogAge = Math.floor(Math.random() * 12) + 1;
-                        } catch (error) {
-                            console.error('Error fetching dog:', error);
-                        }
-                    }
-                        },
-                        mounted() {
-                            this.bestDog();
-                        }
-                        }).mount('#app');
-            </script>
+                }
+            },
+            mounted() {
+                this.bestDog();
+            }
+        }).mount('#app');
+    </script>
 </body>
+
 </html>
