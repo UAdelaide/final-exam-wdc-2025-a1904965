@@ -32,9 +32,9 @@ router.get('/my-dogs', async(req, res) => {
       res.json(rows);
   } catch (error) {
     console.error('Error fetching user dogs: ', error);
-    res.status()
+    res.status(500).json({ error: 'Failed to fetch dogs' });
   }
-})
+});
 
 // POST a new user (simple signup)
 router.post('/register', async (req, res) => {
