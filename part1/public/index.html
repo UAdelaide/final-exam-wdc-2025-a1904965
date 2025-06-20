@@ -170,10 +170,11 @@
                         const data = await response.json();
                         this.dogImage = data.message; // this stores the image URL
 
-                        //
+                        // Arrays of random names and breeds to choose from
                         const names = ['Levi', 'Hange', 'Erwin', 'Sasha', 'Winston', 'Mikasa'];
                         const breeds = ['Corgi', 'Golden Retriever', 'Labrador', 'German Shepherd'];
 
+                        // 
                         this.dogName = names[Math.floor(Math.random() * names.length)];
                         this.dogBreed = breeds[Math.floor(Math.random() * breeds.length)];
                         this.dogAge = Math.floor(Math.random() * 12) + 1;
