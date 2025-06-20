@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
 router.post('/:id/apply', async (req, res) => {
   const requestId = req.params.id;
   const { walker_id } = req.session.user?.user_id;
-  if(!walker_id) return res.status(401).json({  })
+  if(!walker_id) return res.status(401).json({ error: 'Not logged in as walker' });
 
   try {
     await db.query(`
