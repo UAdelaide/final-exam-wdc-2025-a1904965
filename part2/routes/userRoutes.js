@@ -77,10 +77,8 @@ router.post('/logout', async (req, res) => {
     res.clearCookie('connect.sid'); // defualt session cookie name for express-session
 
     // send success response confirming logout
-    res.json({})
-
-
-  })
+    res.json({ message: 'Logged out successfully!' });
+  }); 
   const { username, password } = req.body;
 
   try {
