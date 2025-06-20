@@ -137,7 +137,7 @@ let db;
 
         await db.execute(`
             INSERT INTO WalkApplications (request_id, walker_id, applied_at, status) VALUES
-            (6. ())`);
+            (6, (SELCT user_id FROM Users WHERE username = '))`);
 
             await db.execute(`
             INSERT INTO Dogs (owner_id, name, size) VALUES
