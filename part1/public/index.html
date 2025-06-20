@@ -158,13 +158,14 @@
                     dogImage: '', // the URL for the random dog image from API
                     dogName: 'Mr Winston', // Default dog name
                     dogBreed: 'Corgi', // Default dog breed
-                    dogAge: 2 // Default dog age 
+                    dogAge: 2 // Default dog age
                 }
             },
 
             methods: {
                 async bestDog() {
                     try {
+                        // Call the DogCEO API to get a random dog image 
                         const response = await fetch('https://dog.ceo/api/breeds/image/random');
                         const data = await response.json();
                         this.dogImage = data.message;
