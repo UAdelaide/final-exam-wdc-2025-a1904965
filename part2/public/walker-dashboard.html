@@ -89,6 +89,7 @@
           try {
             const res = await fetch('/api/users/logout', {
               method: 'POST',
+              credentials: 'include', // tells the browser to send cookies
               headers: { 'Content-Type': 'application/json' }
             });
 
