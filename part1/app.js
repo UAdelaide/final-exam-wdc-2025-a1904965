@@ -137,13 +137,13 @@ let db;
 
         await db.execute(`
             INSERT INTO WalkApplications (request_id, walker_id, applied_at, status) VALUES
-            (6, (SELCT user_id FROM Users WHERE username = 'bobwalker'), '2025-6-10 08:00:00', 'open'),
+            (6, (SELECT user_id FROM Users WHERE username = 'bobwalker'), '2025-6-10 08:00:00', 'open'),
             (9, (SELECT user_id FROM Users WHERE username = 'christinewalker'), '2025-06-12 16:00:00', 'open')
             `);
 
             await db.execute(`
             INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments, rated_at) VALUES
-            (6, (SELECT user_id FROM Users WHERE username = 'bobwalker),
+            (6, (SELECT user_id FROM Users WHERE username = 'bobwalker'),
                 (SELECT user_id FROM Users WHERE username = 'alice123'),
                 5, 'Excellent Service', '2025-06-10 10:00:00')`),
             (9, (SELECT user_id FROM Users WHERE username = 'christinewalker'),
