@@ -138,8 +138,9 @@ if (users[0].count === 0) {
 ((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Levi' AND u.username = 'carol123'),
 '2025-06-13 08:30:00', 45, 'Adelaide University', 'completed')`);
 
-} 
-    }
+}
+    } catch (err) {
+        console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);    }
 });
 
 
