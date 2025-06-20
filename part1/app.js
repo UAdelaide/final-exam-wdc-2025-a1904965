@@ -135,10 +135,10 @@ let db;
         ((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Levi' AND u.username = 'carol123'),
         '2025-06-13 08:30:00', 45, 'Adelaide University', 'completed')`);
 
-        await db.execute(`
+            await db.execute(`
             INSERT INTO WalkApplications (request_id, walker_id, applied_at, status) VALUES
-            (6, (SELECT user_id FROM Users WHERE username = 'bobwalker'), '2025-6-10 08:00:00', 'open'),
-            (9, (SELECT user_id FROM Users WHERE username = 'christinewalker'), '2025-06-12 16:00:00', 'open')
+            (6, (SELECT user_id FROM Users WHERE username = 'bobwalker'), '2025-6-10 08:00:00', 'accepted'),
+            (9, (SELECT user_id FROM Users WHERE username = 'christinewalker'), '2025-06-12 16:00:00', 'accepted')
             `);
 
             await db.execute(`
