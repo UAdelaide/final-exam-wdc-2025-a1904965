@@ -134,6 +134,22 @@ let db;
 
         ((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Levi' AND u.username = 'carol123'),
         '2025-06-13 08:30:00', 45, 'Adelaide University', 'completed')`);
+
+        await db.execute(`
+            INSERT INTO Dogs (owner_id, name, size) VALUES
+            ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
+            ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
+            ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Bear', 'large'),
+            ((SELECT user_id FROM Users WHERE username = 'grace123'), 'Winnie', 'medium'),
+            ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Levi', 'medium')`);
+
+            await db.execute(`
+                INSERT INTO Dogs (owner_id, name, size) VALUES
+                ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
+                ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
+                ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Bear', 'large'),
+                ((SELECT user_id FROM Users WHERE username = 'grace123'), 'Winnie', 'medium'),
+                ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Levi', 'medium')`);
         }
     } catch (err) {
         console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
