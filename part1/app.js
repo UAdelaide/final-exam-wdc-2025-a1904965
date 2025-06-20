@@ -148,9 +148,7 @@ let db;
                 5, 'Excellent Service', '2025-06-10 10:00:00')`),
             (6, (SELECT user_id FROM Users WHERE username = 'bobwalker),
                 (SELECT user_id FROM Users WHERE username = 'alice123'),
-                5, 'Excellent Service', '2025-06-10 10:00:00')`)
-                ()
-            ()
+                5, 'Excellent Service', '2025-06-10 10:00:00')`);
         }
     } catch (err) {
         console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
