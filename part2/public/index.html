@@ -53,7 +53,10 @@
             const data = await res.json();
             if (!res.ok) throw new Error(data.error);
 
-            // Redirect based on 
+            // Redirect based on the user's role
+            if (data.user.role === 'owner') {
+              win
+            }
           }
         }
       }
