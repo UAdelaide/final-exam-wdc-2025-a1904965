@@ -10,9 +10,9 @@ const session = require('express-session');
 
 // Session Management Middleware
 app.use(session({
-    secret: 'dog-walk-secret',
-    resave: false,
-    saveUninitialized: false,
+    secret: 'dog-walk-secret', // the secret key for session encryption
+    resave: false, // don't save the session is unmodified
+    saveUninitialized: false, // don't create session until something is stored
     cookie: { secure: false } // set to true if using HTTPS
 }));
 
