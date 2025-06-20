@@ -2,6 +2,7 @@
 
 const app = require('./app');
 
+// set port from environment variable OR default to 8080
 const PORT = process.env.PORT || 8080;
 
 // this starts the Express server and listens on specified port
