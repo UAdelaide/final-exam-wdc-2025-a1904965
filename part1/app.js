@@ -28,7 +28,7 @@ let db;
             password: ''
         });
 
-await connection.query()
+await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService')
     }
 });
 
