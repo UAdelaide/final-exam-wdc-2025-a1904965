@@ -119,7 +119,10 @@ if (users[0].count === 0) {
         ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
         ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Bear', 'large'),
         ((SELECT user_id FROM Users WHERE username = 'grace123'), 'Winnie', 'medium'),
-        ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Levi', 'medium');`)
+        ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Levi', 'medium')`);
+
+    await db.execute(`
+        INSERT INTO `)
 }
 
 
