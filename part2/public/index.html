@@ -26,23 +26,6 @@
         <input type="password" class="form-control" v-model="loginForm.password" required>
       </div>
       <button type="submit" class="btn btn-primary">Log In</button>
-
-      <!-- Dogs Display Table -->
-       <div class ="mt-5">
-        <h3>All Registered Dogs</h3>
-        <!-- Loading message -->
-         <div v-if = "loadingDogs" class = "text-center">
-          <p>Loading dogs...</p>
-         </div>
-         <!-- Error message -->
-         <div v-if = "dogsError" class = "alert alert-danger">
-          {{}}
-         </div>
-
-
-
-
-       </div>
     </form>
   </div>
 
