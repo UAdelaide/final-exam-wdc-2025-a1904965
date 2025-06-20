@@ -67,6 +67,10 @@
         // modifyed to use dynamic walker ID
         async function applyToWalk(requestId) {
           try {
+            // ensure current user is loaded before applying
+            if(!currentUser.value) {
+              error.value
+            }
 
 
 
