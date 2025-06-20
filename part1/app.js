@@ -141,7 +141,8 @@ let db;
             `);
 
             await db.execute(`
-            INSERT INTO `);
+            INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments, rated_at) VALUES
+            ()`);
         }
     } catch (err) {
         console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
