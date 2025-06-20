@@ -104,7 +104,10 @@ await db.execute(`
 
 // Insert data if table is empty
 const[users] = await db.execute('SELECT COUNT(*) AS count FROM Users');
-if (users[0])
+if (users[0].count === 0) {
+    await db.execute(`
+        INSERT INTO User`)
+}
 
 
 
