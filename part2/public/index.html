@@ -43,9 +43,10 @@
         };
       },
       methods: {
-        // Add inside methods - Login method handles form submission and API call 
+        // Add inside methods - Login method handles form submission and user authentication
         async login() {
           try {
+            // send POST request to the backend login API endpoint
             const res = await fetch('/api/users/login', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
