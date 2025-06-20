@@ -155,7 +155,11 @@
           }
         }
 
-        async function 
+        async function loadUserDogs() {
+          try {
+            const res = await fetch('/api/dogs/')
+          }
+        }
 
         return {
           form,
