@@ -144,8 +144,14 @@ let db;
     }
 })();
 
+Define the routes at the paths
 
-// Routes
+/api/dogs
+/api/walkrequests/open
+/api/walkers/summary
+
+
+// Routes at /api/dogs
 app.get('/', async (req, res) => {
     try {
         const [books] = await db.execute('SELECT * FROM books');
