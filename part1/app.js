@@ -136,7 +136,9 @@ if (users[0].count === 0) {
 '2025-06-12 16:00:00', 30, 'Montrose Ave', 'open'),
 
 ((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Levi' AND u.username = 'carol123'),
-'2025-06-13 08:30:00', 45, 'Adelaide University', 'completed')`)
+'2025-06-13 08:30:00', 45, 'Adelaide University', 'completed')`);
+
+
 }
 
 
