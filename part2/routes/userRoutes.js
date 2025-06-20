@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
       WHERE username = ? AND password_hash = ?
     `, [username, password]); // changed from email to username
 
-    
+    // check if user exists with provided credentials 
     if (rows.length === 0) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
