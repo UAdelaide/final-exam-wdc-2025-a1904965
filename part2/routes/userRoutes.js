@@ -42,7 +42,7 @@ router.get('/me', async(req, res) => {
   try {
     // check if user is logged in via session
     if(!req.session.user) {
-      return res.status(401).
+      return res.status(401).json({ error: 'Not authenticated' }); 
     }
   }
 })
