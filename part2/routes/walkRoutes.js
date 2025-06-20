@@ -38,8 +38,7 @@ router.post('/', async (req, res) => {
 // POST an application to walk a dog (from walker)
 router.post('/:id/apply', async (req, res) => {
   const requestId = req.params.id;
-  const { walker_id } = req.session.user?.user_id;
-  if(!walker_id) return res.status(401).json({ error: 'Not logged in as walker' });
+  const { walker_id } = req.body;
 
   try {
     await db.query(`
