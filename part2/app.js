@@ -1,3 +1,5 @@
+// app.js file used to define the app and its routes
+
 const express = require('express');
 const path = require('path');
 require('dotenv').config();
