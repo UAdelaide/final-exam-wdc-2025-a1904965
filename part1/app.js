@@ -142,8 +142,6 @@ let db;
 })();
 
 
-/api/walkers/summary
-
 // Route handlers
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -176,7 +174,7 @@ app.get('/api/dogs', async (req, res) => {
     }
 });
 
-// Routes at /api/dogs
+// Routes at /api/walkers/summary
 app.get('/api/dogs', async (req, res) => {
     try {
         const [rows] = await db.execute(`
