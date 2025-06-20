@@ -130,9 +130,11 @@
           try {
             const response = await fetch('/api/dogs');
             if (!response.ok) {
-              throw new Error('Failed to fetch dogs'); 
+              throw new Error('Failed to fetch dogs');
             }
-          }
+            const dogsData = await response.json();
+
+            // a
         }
       }
     }).mount('#app');
