@@ -103,7 +103,7 @@ await db.execute(`
     `);
 
 // Insert data if table is empty
-
+const[users] =
 
 
 
