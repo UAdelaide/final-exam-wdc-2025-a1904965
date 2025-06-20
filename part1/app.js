@@ -164,7 +164,7 @@ let db;
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-// API Routes Defined
+// API Routes Defined:
 
 // Routes at /api/dogs to return as JSON
 app.get('/api/dogs', async (req, res) => {
