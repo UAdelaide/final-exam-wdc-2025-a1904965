@@ -154,7 +154,7 @@ Define the routes at the paths
 // Routes at /api/dogs
 app.get('/api/dogs', async (req, res) => {
     try {
-        const [rows] = await db.execute('SELECT d.name AS dog_name, d.size, u.username AS ');
+        const [rows] = await db.execute('SELECT d.name AS dog_name, d.size, u.username AS owner_username');
         res.json(books);
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch books' });
