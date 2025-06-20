@@ -20,6 +20,7 @@ let db;
 // Insert records into the database on startup to allow for testing
 (async () => {
     try {
+        // Create database if it does not exist
         const connection = await mysql.createConnection({
             host: 'localhost',
             user: 'root',
@@ -29,6 +30,7 @@ let db;
         await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
         await connection.end();
 
+        // Connect to 
         db = await mysql.createConnection({
             host: 'localhost',
             user: 'root',
