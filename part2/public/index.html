@@ -125,7 +125,11 @@
         // load all dogs with random photos using DOGS API
         async loadAllDog() {
           this.loadingDogs = true;
-          this.dogsError = ''; 
+          this.dogsError = '';
+
+          try {
+            const response = await fetch('/api/dogs'); 
+          }
         }
       }
     }).mount('#app');
