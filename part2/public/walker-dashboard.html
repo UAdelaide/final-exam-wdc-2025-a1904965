@@ -69,11 +69,9 @@
           try {
             // ensure current user is loaded before applying
             if(!currentUser.value) {
-              error.value
+              error.value = 'User information not available';
+              return;
             }
-
-
-
 
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
