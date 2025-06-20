@@ -58,8 +58,7 @@
             const data = await res.json();
             if (!res.ok) throw new Error(data.error);
 
-            // Redirect based on the user's role
-            if (data.user.role === 'owner') {
+// Redirect based on the user's role (walker or owner) after successful authentication             if (data.user.role === 'owner') {
               window.location.href = 'owner-dashboard.html';
             } else {
               window.location.href = 'walker-dashboard.html';
