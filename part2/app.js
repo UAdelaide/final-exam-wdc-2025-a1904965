@@ -17,6 +17,8 @@ app.use(session({
     cookie: { secure: false } // set to true if using HTTPS
 }));
 
+// copy and pasted from part1
+// 
 const mysql = require('mysql2/promise');
 
 let db;
