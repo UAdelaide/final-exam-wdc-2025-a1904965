@@ -103,9 +103,7 @@
           }
         },
 
-        async loadAllDogs() {
-          console.log('Loading dogs...');
-          try {
+        async loadAllDogs()
             const response = await fetch('/api/dogs');
             console.log('Response:', response);
             const dogsData = await response.json();
@@ -118,11 +116,8 @@
                 return { ...dog, photo: photoData.message };
               })
             );
-            console.log('Final dogs with photos:', this.dogs);
-          } catch (error) {
-            console.error('Error loading dogs:', error);
           }
-        }
+          }
       },
 
       mounted() {
