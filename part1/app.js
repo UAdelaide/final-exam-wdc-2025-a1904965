@@ -200,6 +200,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
 
 // Routes at /api/walkers/summary to return as JSON
 // returns summary of walkers and their ratings (including total ratings, average rating)
+// 
 app.get('/api/walkers/summary', async (req, res) => {
     try {
         const [rows] = await db.execute(`
