@@ -107,7 +107,7 @@
             const response = await fetch('/api/dogs');
             const dogsData = await response.json();
 
-            
+            // for each dog in the database, fetch a random photo from the Dog API
             this.dogs = await Promise.all(
               dogsData.map(async (dog) => {
                 const photoResponse = await fetch('https://dog.ceo/api/breeds/image/random');
