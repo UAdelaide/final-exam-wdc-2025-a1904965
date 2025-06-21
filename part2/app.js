@@ -31,14 +31,9 @@ let db;
         });
         console.log('Connected to database');
     } catch(err) {
-        console.error('Error connecting to database:')
+        console.error('Error connecting to database:', err);
     }
-})
-
-
-
-
-
+})();
 
 // /api/dogs route from part1
 // Routes at /api/dogs to return as JSON
