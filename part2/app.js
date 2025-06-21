@@ -32,7 +32,7 @@ const userRoutes = require('./routes/userRoutes');
 app.get('/api/dogs', async (req, res) => {
     try {
         const [rows] = await db.execute(`
-            SELECT d.name AS dog_name, d.size, u.username AS owner_username
+            SELECT d.dog_id, d.name, d.size, d.owner_id
             FROM Dogs d
             JOIN Users u ON d.owner_id = u.user_id
             `);
