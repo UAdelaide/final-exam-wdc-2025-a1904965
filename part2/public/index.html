@@ -103,17 +103,17 @@
         },
 
         async loadAllDogs() {
-        const resposne = await fetch('/api/dogs');
-        const dogsData = await response.json();
+          const response = await fetch('/api/dogs');
+          const dogsData = await response.json();
 
-        this.dogs = await Promise.all(
-          dogsData.map(async (dog => {
-            const photoResponse = await fetch('https://dog.ceo.api/breeds/image/random');
-            const photoData = await photoResponse.json();
-            return { ...dog, photo: photoData.message };
-          })
-        );
-      }
+          this.dogs = await Promise.all(
+            dogsData.map(async (dog) => {
+              const photoResponse = await fetch('https://dog.ceo/api/breeds/image/random');
+              const photoData = await photoResponse.json();
+              return { ...dog, photo: photoData.message };
+            })
+          );
+        }
       },
 
       mounted() {
