@@ -28,6 +28,7 @@ const userRoutes = require('./routes/userRoutes');
 // /api/dogs route from part1
 // Routes at /api/dogs to return as JSON
 // returns all dogs and their owners
+// updated to return owner_id instead of owner_username
 app.get('/api/dogs', async (req, res) => {
     try {
         const [rows] = await db.execute(`
