@@ -23,19 +23,20 @@ let db;
 
 (async ( =>) {
     try {
-
+        db = await mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: '',
+            database: 'DogWalkService'
+        });
+        console.log('Connected to database'); 
     }
 })
 
 
 
 
-db = await mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'DogWalkService'
-});
+
 
 // /api/dogs route from part1
 // Routes at /api/dogs to return as JSON
