@@ -18,7 +18,7 @@ app.use(session({
 }));
 
 // copy and pasted from part1
-// 
+// making sure the database is connected
 const mysql = require('mysql2/promise');
 
 let db;
