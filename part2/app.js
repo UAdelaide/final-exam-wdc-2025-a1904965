@@ -34,7 +34,7 @@ app.get('/api/dogs', async (req, res) => {
         const [rows] = await db.execute(`
             SELECT d.dog_id, d.name, d.size, d.owner_id
             FROM Dogs d
-            JOIN Users u ON d.owner_id = u.user_id
+            ORDER BY d.dog_id
             `);
         res.json(rows);
     } catch (err) {
