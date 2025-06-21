@@ -25,6 +25,13 @@ app.use(express.static(path.join(__dirname, '/public')));
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
 
+db = await mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'DogWalkService'
+});
+
 // /api/dogs route from part1
 // Routes at /api/dogs to return as JSON
 // returns all dogs and their owners
