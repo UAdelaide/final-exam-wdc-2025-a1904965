@@ -104,7 +104,8 @@
         },
 
         async loadAllDogs() {
-          console.log('Loading dogs...')
+          console.log('Loading dogs...');
+          try {
           const response = await fetch('/api/dogs');
           console.log('Response:', response);
           const dogsData = await response.json();
@@ -121,6 +122,7 @@
         } catch (error) {
           console.error('Error loading dogs:', error');
         }
+      }
       },
 
       mounted() {
