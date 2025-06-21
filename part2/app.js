@@ -21,7 +21,7 @@ const mysql = require('mysql2/promise');
 
 let db;
 
-(async ( ) => {
+(async () => {
     try {
         db = await mysql.createConnection({
             host: 'localhost',
@@ -30,7 +30,7 @@ let db;
             database: 'DogWalkService'
         });
         console.log('Connected to database');
-    } catch(err) {
+    } catch (err) {
         console.error('Error connecting to database:', err);
     }
 })();
