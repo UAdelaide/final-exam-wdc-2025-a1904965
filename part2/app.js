@@ -17,14 +17,6 @@ app.use(session({
     cookie: { secure: false } // set to true if using HTTPS
 }));
 
-// Middleware
-app.use(express.json());
-app.use(express.static(path.join(__dirname, '/public')));
-
-// Routes
-const walkRoutes = require('./routes/walkRoutes');
-const userRoutes = require('./routes/userRoutes');
-
 const mysql = require('mysql2/promise');
 const db = mysql.createConnection({
     host: 'localhost',
@@ -50,6 +42,14 @@ app.get('/api/dogs', async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch dogs' });
     }
 });
+
+// Middleware
+app.use(express.json());
+app.use(express.static(path.join(__dirname, '/public')));
+
+// Routes
+const walkRoutes = require('./routes/walkRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
