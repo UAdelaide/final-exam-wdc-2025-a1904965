@@ -25,12 +25,21 @@ app.use(express.static(path.join(__dirname, '/public')));
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
 
-app.get('/api/dogs', async(req, res) => {
+// /api/dogs route from part1
+// Routes at /api/dogs to return as JSON
+// returns all dogs and their owners
+app.get('/api/dogs', async (req, res) => {
     try {
         const [rows] = await db.execute(`
-            SLEECT `)
+            SELECT d.name AS dog_name, d.size, u.username AS owner_username
+            FROM Dogs d
+            JOIN Users u ON d.owner_id = u.user_id
+            `);
+        res.json(rows);
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch dogs' });
     }
-})
+});
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
