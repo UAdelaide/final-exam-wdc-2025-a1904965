@@ -105,6 +105,7 @@
 
         async loadAllDogs() {
           const response = await fetch('/api/dogs');
+          console.log('Response:', )
           const dogsData = await response.json();
 
           this.dogs = await Promise.all(
