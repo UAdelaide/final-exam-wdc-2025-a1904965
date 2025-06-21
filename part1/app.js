@@ -211,7 +211,7 @@ app.get('/api/walkers/summary', async (req, res) => {
                 -- Using COUNT(wr.rating_id) instead of COUNT(*) to only count actual ratings
                 COUNT(wr.rating_id) AS total_ratings,
 
-                -- Calculate average rating (if any), 
+                -- Calculate average rating (if any), otherwise return null
                 CASE
                     WHEN COUNT(wr.rating_id) > 0 THEN ROUND(AVG(wr.rating), 1)
                     ELSE NULL
