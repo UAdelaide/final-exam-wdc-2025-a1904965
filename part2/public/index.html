@@ -116,7 +116,9 @@
               return { ...dog, photo: photoData.message };
             })
           );
-          console.log('Final dogs with photos:', this)
+          console.log('Final dogs with photos:', this.dogs);
+        } catch (error) {
+          console.error('Error loading dogs: ')
         }
       },
 
