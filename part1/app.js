@@ -206,10 +206,11 @@ app.get('/api/walkers/summary', async (req, res) => {
         const [rows] = await db.execute(`
             SELECT
                 u.username AS walker_username,
-                
+
                 -- Count total ratings for each walker
                 -- Using COUNT(wr.rating_id) instead of COUNT(*) to only count actual ratings
                 COUNT(wr.rating_id) AS total_ratings,
+
                 CASE
                     WHEN COUNT(wr.rating_id) > 0 THEN ROUND(AVG(wr.rating), 1)
                     ELSE NULL
