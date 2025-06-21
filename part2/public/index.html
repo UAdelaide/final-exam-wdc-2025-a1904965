@@ -108,7 +108,9 @@
         const dogsData = await response.json();
 
         this.dogs = await Promise.all(
-          dogsData.map(async)
+          dogsData.map(async (dog => {
+            const photoResponse = await fetch('https://dog.ceo.')
+          }))
         )
       }
 
