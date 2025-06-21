@@ -25,7 +25,11 @@ app.use(express.static(path.join(__dirname, '/public')));
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
 
-app.get('/api/dogs', async(req, res))
+app.get('/api/dogs', async(req, res) => {
+    try {
+        const [rows] = await db.execute()
+    }
+})
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
