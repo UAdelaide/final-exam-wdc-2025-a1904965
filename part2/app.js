@@ -27,7 +27,8 @@ const userRoutes = require('./routes/userRoutes');
 
 app.get('/api/dogs', async(req, res) => {
     try {
-        const [rows] = await db.execute()
+        const [rows] = await db.execute(`
+            SLEECT `)
     }
 })
 
