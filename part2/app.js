@@ -35,9 +35,10 @@ app.get('/api/dogs', async (req, res) => {
             SELECT d.dog_id, d.name, d.size, d.owner_id
             FROM Dogs d
             ORDER BY d.dog_id
-            `);
+        `);
         res.json(rows);
     } catch (err) {
+        console.error('Database error:', err);
         res.status(500).json({ error: 'Failed to fetch dogs' });
     }
 });
